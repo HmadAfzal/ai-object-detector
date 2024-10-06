@@ -1,5 +1,4 @@
 import Detector from "@/components/Detector";
-import Image from "next/image";
 
 export default function Home() {
   return (
