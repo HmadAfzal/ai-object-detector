@@ -70,7 +70,6 @@ const ObjectDetection = () => {
       ) : (
         <div className="relative flex justify-center items-center gradient p-1.5 rounded-md">
           <Webcam 
-          mirrored
             ref={webcamRef}
             className="rounded-md w-full lg:h-[720px]"
             muted
