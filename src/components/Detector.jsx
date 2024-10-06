@@ -14,12 +14,12 @@ const ObjectDetection = () => {
   const canvasRef = useRef(null);
 
   async function runCoco() {
-    setIsLoading(true); // Set loading state to true when model loading starts
+    setIsLoading(true); 
     const net = await cocoSSDLoad();
-    setIsLoading(false); // Set loading state to false when model loading completes
+    setIsLoading(false);
 
     detectInterval = setInterval(() => {
-      runObjectDetection(net); // will build this next
+      runObjectDetection(net);
     }, 10);
   }
 
@@ -32,14 +32,12 @@ const ObjectDetection = () => {
       canvasRef.current.width = webcamRef.current.video.videoWidth;
       canvasRef.current.height = webcamRef.current.video.videoHeight;
 
-      // find detected objects
       const detectedObjects = await net.detect(
         webcamRef.current.video,
         undefined,
         0.6
       );
 
-      //   console.log(detectedObjects);
 
       const context = canvasRef.current.getContext("2d");
       renderPredictions(detectedObjects, context);
@@ -70,14 +68,12 @@ const ObjectDetection = () => {
         <div className="gradient-text">Loading AI Model...</div>
       ) : (
         <div className="relative flex justify-center items-center gradient p-1.5 rounded-md">
-          {/* webcam */}
           <Webcam 
           mirrored
             ref={webcamRef}
             className="rounded-md w-full lg:h-[720px]"
             muted
           />
-          {/* canvas */}
           <canvas
             ref={canvasRef}
             className="absolute top-0 left-0 z-99999 w-full lg:h-[720px]"

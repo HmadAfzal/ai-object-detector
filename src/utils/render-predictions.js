@@ -3,7 +3,6 @@ import {throttle} from "lodash";
 export const renderPredictions = (predictions, ctx) => {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-  // Fonts
   const font = "16px sans-serif";
   ctx.font = font;
   ctx.textBaseline = "top";
@@ -22,7 +21,7 @@ export const renderPredictions = (predictions, ctx) => {
 
     ctx.fillStyle = isPerson ? "#FF0000" : "#00FFFF";
     const textWidth = ctx.measureText(prediction.class).width;
-    const textHeight = parseInt(font, 10); // base 10
+    const textHeight = parseInt(font, 10); 
     ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
 
     ctx.fillStyle = "#000000";
